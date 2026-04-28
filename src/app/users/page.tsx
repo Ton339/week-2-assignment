@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 interface User {
   id: number;
@@ -14,22 +14,25 @@ export default function UsersPage() {
 
   const [refreshCount, setRefreshCount] = useState(0);
 
-useEffect(() => {
+  useEffect(() => {
     async function fetchUser() {
-        try {
-            const result = await fetch('https://jsonplaceholder.typicode.com/users');
-            const data = await result.json();
-            setUsers(data);
-        }catch(error){
-            setError(true);
-        } finally {
-            setLoading(false);
-        }
-    };
+      try {
+        const result = await fetch(
+          "https://jsonplaceholder.typicode.com/users",
+        );
+        const data = await result.json();
+        setUsers(data);
+      } catch (error) {
+        setError(true);
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
     fetchUser();
-}, [refreshCount]);
+  }, [refreshCount]);
 
- const handleRefresh = ()  => {
+  const handleRefresh = () => {
     setLoading(true);
     setRefreshCount((prev) => prev + 1);
   };
