@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { Skeleton } from "@/components/ui/skeleton";
 
 // 1. นำเข้า Component แบบ Lazy Load
-const HeavyChart = dynamic(() => import("@/components/HeavyChart"), {
+const HeavyChart = dynamic(() => import("@/components/heavy-chart"), {
   // 2. ใส่ Skeleton เป็นหน้าจอโหลดชั่วคราว
   loading: () => <Skeleton className="h-40 w-full" />,
 
