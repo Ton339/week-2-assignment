@@ -1,13 +1,15 @@
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 import { MonthlyViewData } from "@/components/monthly-view-chart";
 
-const MonthlyViewChart = dynamic(
+const MonthlyViewChart = nextDynamic(
   () => import("@/components/monthly-view-chart"),
 );
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export const dynamic = "force-dynamic";
 
 // นี่คือ Server Component ที่รับจบเรื่อง Data Fetching
 async function ChartDataFetcher() {
