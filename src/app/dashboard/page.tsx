@@ -1,36 +1,58 @@
-// app/dashboard/page.tsx
-"use client";
 import dynamic from "next/dynamic";
-// นำเข้า Skeleton จาก shadcn/ui (ต้องรัน npx shadcn@latest add skeleton ก่อน)
 import { Skeleton } from "@/components/ui/skeleton";
+import { Suspense } from "react";
+import { MonthlyViewData } from "@/components/monthly-view-chart";
 
-// 1. นำเข้า Component แบบ Lazy Load
-const HeavyChart = dynamic(() => import("@/components/heavy-chart"), {
-  // 2. ใส่ Skeleton เป็นหน้าจอโหลดชั่วคราว
-  loading: () => <Skeleton className="h-40 w-full" />,
+const MonthlyViewChart = dynamic(
+  () => import("@/components/monthly-view-chart"),
+);
 
-  // 💡 ทริคเสริม: ถ้ากราฟของน้องพึ่งพา Window (เช่น วัดขนาดหน้าจอ)
-  // ให้ใส่ ssr: false เพื่อป้องกัน Error ฝั่ง Server
-  ssr: false,
-});
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// นี่คือ Server Component ที่รับจบเรื่อง Data Fetching
+async function ChartDataFetcher() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  // จำลองความช้าให้เห็นผลลัพธ์ของ Suspense
+  await sleep(2000);
+
+  const res = await fetch(`${apiUrl}/dashboardStats-monthlyViews`);
+
+  if (!res.ok) {
+    // ถ้าพัง Next.js จะส่ง Error ทะลุไปยังหน้า error.tsx อัตโนมัติ
+    throw new Error(`Failed to fetch user data (Status: ${res.status})`);
+  }
+
+  const data = await res.json();
+  const chartData: MonthlyViewData[] = data[0].monthlyViews;
+  const chartTrending: number = data[0].TrendingPercentage;
+  const chartDescription: string = data[0].Description;
+
+  // โยนข้อมูลลงไปเป็น Props ให้ Component ลูก
+  return (
+    <MonthlyViewChart
+      chartData={chartData}
+      chartTrending={chartTrending}
+      chartDescription={chartDescription}
+    />
+  );
+}
 
 export default function DashboardPage() {
   return (
-    <div className="p-8 max-w-4xl mx-auto space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          ภาพรวมระบบ (Dashboard)
-        </h1>
-        <p className="text-muted-foreground mt-2">
-          กราฟด้านล่างนี้จะถูกโหลดแบบแยกส่วน (Code Splitting)
-          เพื่อไม่ให้หน้าเว็บหลักกระตุก
-        </p>
+    <>
+      <title>Dashboard</title>
+      <meta name="description" content="Dashboard" />
+      <link rel="icon" href="/favicon.ico" />
+      <h1 className="text-4xl font-bold pb-6 ">Dashboard</h1>
+      <div className="justify-self-center w-full max-w-4xl mx-auto">
+        {/* Suspense จะทำงานตอน ChartDataFetcher กำลังโหลดข้อมูล (await) */}
+        <Suspense
+          fallback={<Skeleton className="h-[400px] w-full rounded-xl" />}
+        >
+          <ChartDataFetcher />
+        </Suspense>
       </div>
-
-      {/* 3. เรียกใช้งานเหมือน Component ปกติได้เลย */}
-      <div className="mt-8">
-        <HeavyChart />
-      </div>
-    </div>
+    </>
   );
 }
