@@ -40,6 +40,7 @@ A modern web application built with **Next.js (App Router)** to manage tasks and
 ## 🛠️ Getting Started
 
 ### Prerequisites
+
 Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 ### Installation
@@ -59,17 +60,12 @@ The project uses a single command to run both the Next.js frontend and the `json
 npm run dev
 ```
 
+```bash
+npm run server
+```
+
 - The **Next.js App** will run on [http://localhost:3000](http://localhost:3000)
 - The **json-server API** will run on [http://localhost:3001](http://localhost:3001)
-
-### Building for Production
-
-To build the application for production (e.g., deploying to Vercel):
-
-```bash
-npm run build
-```
-*(Note: Since this app fetches data from a local `json-server`, ensure you provide a valid remote `NEXT_PUBLIC_API_URL` environment variable if deploying to a cloud provider like Vercel.)*
 
 ## 💡 Key Implementations
 

@@ -29,7 +29,8 @@ export default async function UserDetailPage({
   const { id } = await params;
 
   // Fetch user data using the id
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const res = await fetch(`${apiUrl}/users/${id}`);
 
   if (!res.ok) {
     // This will activate the closest `error.tsx` Error Boundary
