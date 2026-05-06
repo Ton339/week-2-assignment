@@ -1,56 +1,63 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { UserCard } from "@/components/user-card";
+import { User } from "./user";
+import Link from "next/link";
+import { ErrorCard } from "@/components/error-card";
 
-interface User {
-  id: number;
-  name: string;
-}
 
 export default function UsersPage() {
-  // ค่าเริ่มต้นเป็น true อยู่แล้ว (ตอนเปิดหน้าเว็บมาจะได้โชว์ Loading เลย)
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const [refreshCount, setRefreshCount] = useState(0);
-
   useEffect(() => {
-    async function fetchUser() {
+    const fetchUser = async () => {
       try {
-        const result = await fetch(
-          "https://jsonplaceholder.typicode.com/users",
-        );
-        const data = await result.json();
+        setLoading(true);
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const res = await fetch(`${apiUrl}/users`);
+        const data = await res.json();
         setUsers(data);
       } catch (error) {
         setError(true);
-        console.log(error);
       } finally {
         setLoading(false);
       }
-    }
+    };
+
     fetchUser();
-  }, [refreshCount]);
+  }, []);
 
-  const handleRefresh = () => {
-    setLoading(true);
-    setRefreshCount((prev) => prev + 1);
-  };
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Something went wrong</p>;
-  if (users.length === 0) return <p>No users found</p>;
-
-  return (
-    <div className="card">
-      <div className="flex flex-col gap-4">
-        {users.map((user) => (
-          <div key={user.id}>{user.name}</div>
+  // กรณีที่ 1: กำลังโหลด (Pending)
+  if (loading) {
+    return (
+      <div className="grid grid-cols-3  gap-4">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <UserCard key={i} user={null} />
         ))}
       </div>
-      <button className="btn" onClick={handleRefresh}>
-        Refresh
-      </button>
-    </div>
+    );
+  }
+
+  // กรณีที่ 2: เกิดข้อผิดพลาด (Rejected)
+  if (error) {
+    return <ErrorCard />;
+  }
+
+  return (
+    <>
+      <title>User List</title>
+      <meta name="description" content="User List" />
+      <link rel="icon" href="/favicon.ico" />
+      <h1 className="text-4xl font-bold pb-6">User List</h1>
+      <div className="grid grid-cols-3  gap-4">
+        {users.map((user) => (
+          <Link key={user.id} href={`/users/${user.id}`}>
+            <UserCard user={user} />
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
