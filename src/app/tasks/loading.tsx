@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
@@ -44,13 +45,15 @@ export default function Loading() {
           ))}
         </TableBody>
       </Table>
-      <TaskPagination
-        currentPage={1}
-        totalPages={1}
-        limit={1}
-        hasNext={false}
-        hasPrev={false}
-      />
+      <Suspense fallback={<div className="h-10" />}>
+        <TaskPagination
+          currentPage={1}
+          totalPages={1}
+          limit={1}
+          hasNext={false}
+          hasPrev={false}
+        />
+      </Suspense>
     </div>
   );
 }

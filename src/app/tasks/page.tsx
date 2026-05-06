@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Task } from "./tasks";
 import Image from "next/image";
 import Link from "next/link";
@@ -165,13 +166,15 @@ export default async function TasksPage(props: {
           </TableFooter>
         </Table>
 
-        <TaskPagination
-          currentPage={page}
-          totalPages={totalPages}
-          limit={limit}
-          hasNext={next !== null}
-          hasPrev={prev !== null}
-        />
+        <Suspense fallback={<div className="h-10" />}>
+          <TaskPagination
+            currentPage={page}
+            totalPages={totalPages}
+            limit={limit}
+            hasNext={next !== null}
+            hasPrev={prev !== null}
+          />
+        </Suspense>
       </div>
     </>
   );
