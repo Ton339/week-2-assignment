@@ -9,6 +9,17 @@ import {
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { Skeleton } from "./ui/skeleton";
+const roleColors: Record<string, string> = {
+  Admin: "bg-blue-50 text-blue-700 dark:bg-sky-950 dark:text-sky-300",
+  Editor:
+    "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300",
+  User: "bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300",
+};
+
+const statusColors: Record<string, string> = {
+  Active: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300",
+  Inactive: "bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300",
+};
 
 export function UserCard({ user }: { user: User | null }) {
   if (user == null) {
@@ -52,16 +63,7 @@ export function UserCard({ user }: { user: User | null }) {
             <div className="gap-2 mt-2">
               <p>
                 role :{" "}
-                <Badge
-                  variant={"secondary"}
-                  className={
-                    user.role === "Admin"
-                      ? "bg-blue-50 text-blue-700 dark:bg-sky-950 dark:text-sky-300"
-                      : user.role === "Editor"
-                        ? "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300"
-                        : "bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300"
-                  }
-                >
+                <Badge variant={"secondary"} className={roleColors[user.role]}>
                   {user.role}
                 </Badge>
               </p>
@@ -69,11 +71,7 @@ export function UserCard({ user }: { user: User | null }) {
                 status :{" "}
                 <Badge
                   variant={"secondary"}
-                  className={
-                    user.status === "Active"
-                      ? "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
-                      : "bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300"
-                  }
+                  className={statusColors[user.status]}
                 >
                   {user.status}
                 </Badge>

@@ -5,6 +5,7 @@ import { User } from "./user";
 import Link from "next/link";
 import { ErrorCard } from "@/components/error-card";
 
+
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,27 +32,25 @@ export default function UsersPage() {
   // กรณีที่ 1: กำลังโหลด (Pending)
   if (loading) {
     return (
-      <div className="container w-full px-12 py-4 justify-items-center">
-        <div className="grid grid-cols-3  gap-4">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <UserCard key={i} user={null} />
-          ))}
-        </div>
+      <div className="grid grid-cols-3  gap-4">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <UserCard key={i} user={null} />
+        ))}
       </div>
     );
   }
 
   // กรณีที่ 2: เกิดข้อผิดพลาด (Rejected)
   if (error) {
-    return (
-      <div className="flex justify-center items-center h-dvh">
-        <ErrorCard />
-      </div>
-    );
+    return <ErrorCard />;
   }
 
   return (
-    <div className="container w-full px-12 py-4 justify-items-center">
+    <>
+      <title>User List</title>
+      <meta name="description" content="User List" />
+      <link rel="icon" href="/favicon.ico" />
+      <h1 className="text-4xl font-bold pb-6">User List</h1>
       <div className="grid grid-cols-3  gap-4">
         {users.map((user) => (
           <Link key={user.id} href={`/users/${user.id}`}>
@@ -59,6 +58,6 @@ export default function UsersPage() {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 }

@@ -1,39 +1,308 @@
 {
   "users": [
-    { "id": "1", "name": "สมชาย ใจดี (Somchai)", "email": "somchai@dev.com", "role": "Admin", "status": "Active", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Somchai", "address": "123 Sukhumvit Road, Bangkok", "birthdate": "1990-05-15", "phone": "081-234-5678", "occupation": "Software Engineer" },
-    { "id": "2", "name": "สมศรี รักดี (Somsri)", "email": "somsri@dev.com", "role": "User", "status": "Active", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Somsri", "address": "456 Silom Road, Bangkok", "birthdate": "1992-08-22", "phone": "089-876-5432", "occupation": "Marketing Manager" },
-    { "id": "3", "name": "มานะ ขยัน (Mana)", "email": "mana@dev.com", "role": "User", "status": "Inactive", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mana", "address": "789 Chiang Mai Road, Chiang Mai", "birthdate": "1988-11-05", "phone": "085-555-1234", "occupation": "Graphic Designer" },
-    { "id": "4", "name": "ชูใจ ใฝ่รู้ (Chujai)", "email": "chujai@dev.com", "role": "Editor", "status": "Active", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Chujai", "address": "321 Phaya Thai Road, Bangkok", "birthdate": "1995-02-14", "phone": "083-333-9876", "occupation": "Content Writer" },
-    { "id": "5", "name": "ปิติ ยินดี (Piti)", "email": "piti@dev.com", "role": "Admin", "status": "Active", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Piti", "address": "654 Pattaya Road, Chonburi", "birthdate": "1991-09-30", "phone": "086-666-4567", "occupation": "Data Analyst" }
+    {
+      "id": "1",
+      "name": "สมชาย ใจดี (Somchai)",
+      "email": "somchai@dev.com",
+      "role": "Admin",
+      "status": "Active",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Somchai",
+      "address": "123 Sukhumvit Road, Bangkok",
+      "birthdate": "1990-05-15",
+      "phone": "081-234-5678",
+      "occupation": "Software Engineer"
+    },
+    {
+      "id": "2",
+      "name": "สมศรี รักดี (Somsri)",
+      "email": "somsri@dev.com",
+      "role": "User",
+      "status": "Active",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Somsri",
+      "address": "456 Silom Road, Bangkok",
+      "birthdate": "1992-08-22",
+      "phone": "089-876-5432",
+      "occupation": "Marketing Manager"
+    },
+    {
+      "id": "3",
+      "name": "มานะ ขยัน (Mana)",
+      "email": "mana@dev.com",
+      "role": "User",
+      "status": "Inactive",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mana",
+      "address": "789 Chiang Mai Road, Chiang Mai",
+      "birthdate": "1988-11-05",
+      "phone": "085-555-1234",
+      "occupation": "Graphic Designer"
+    },
+    {
+      "id": "4",
+      "name": "ชูใจ ใฝ่รู้ (Chujai)",
+      "email": "chujai@dev.com",
+      "role": "Editor",
+      "status": "Active",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Chujai",
+      "address": "321 Phaya Thai Road, Bangkok",
+      "birthdate": "1995-02-14",
+      "phone": "083-333-9876",
+      "occupation": "Content Writer"
+    },
+    {
+      "id": "5",
+      "name": "ปิติ ยินดี (Piti)",
+      "email": "piti@dev.com",
+      "role": "Admin",
+      "status": "Active",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Piti",
+      "address": "654 Pattaya Road, Chonburi",
+      "birthdate": "1991-09-30",
+      "phone": "086-666-4567",
+      "occupation": "Data Analyst"
+    }
   ],
   "tasks": [
-    { "id": "1", "title": "Setup Next.js & Tailwind", "status": "Done", "priority": "High", "userId": "u1" },
-    { "id": "2", "title": "Install shadcn/ui components", "status": "Done", "priority": "High", "userId": "u1" },
-    { "id": "3", "title": "Create Dashboard UI", "status": "In Progress", "priority": "Medium", "userId": "u2" },
-    { "id": "4", "title": "Implement Lazy Loading Chart", "status": "Todo", "priority": "Low", "userId": "u2" },
-    { "id": "5", "title": "Fetch Users API with error handling", "status": "In Progress", "priority": "High", "userId": "u3" },
-    { "id": "6", "title": "Design Empty State layout", "status": "Todo", "priority": "Medium", "userId": "u4" },
-    { "id": "7", "title": "Create Tasks Page", "status": "Done", "priority": "High", "userId": "u5" },
-    { "id": "8", "title": "Implement Pagination logic", "status": "Todo", "priority": "High", "userId": "u5" },
-    { "id": "9", "title": "Add 'Load More' button", "status": "Todo", "priority": "Medium", "userId": "u1" },
-    { "id": "10", "title": "Setup json-server", "status": "Done", "priority": "High", "userId": "u1" },
-    { "id": "11", "title": "Fix ESLint errors", "status": "In Progress", "priority": "Medium", "userId": "u2" },
-    { "id": "12", "title": "Write unit tests for UI", "status": "Todo", "priority": "Low", "userId": "u3" },
-    { "id": "13", "title": "Review PR for Dashboard", "status": "Todo", "priority": "High", "userId": "u4" },
-    { "id": "14", "title": "Optimize images", "status": "Todo", "priority": "Low", "userId": "u5" },
-    { "id": "15", "title": "Deploy to Vercel", "status": "Todo", "priority": "High", "userId": "u1" }
+    {
+      "id": "1",
+      "title": "Setup Next.js & Tailwind",
+      "status": "Done",
+      "priority": "High",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Install shadcn/ui components",
+      "status": "Done",
+      "priority": "High",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Create Dashboard UI",
+      "status": "In Progress",
+      "priority": "Medium",
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "title": "Implement Lazy Loading Chart",
+      "status": "Todo",
+      "priority": "Low",
+      "userId": "2"
+    },
+    {
+      "id": "5",
+      "title": "Fetch Users API with error handling",
+      "status": "In Progress",
+      "priority": "High",
+      "userId": "3"
+    },
+    {
+      "id": "6",
+      "title": "Design Empty State layout",
+      "status": "Todo",
+      "priority": "Medium",
+      "userId": "4"
+    },
+    {
+      "id": "7",
+      "title": "Create Tasks Page",
+      "status": "Done",
+      "priority": "High",
+      "userId": "5"
+    },
+    {
+      "id": "8",
+      "title": "Implement Pagination logic",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "5"
+    },
+    {
+      "id": "9",
+      "title": "Add 'Load More' button",
+      "status": "Todo",
+      "priority": "Medium",
+      "userId": "1"
+    },
+    {
+      "id": "10",
+      "title": "Setup json-server",
+      "status": "Done",
+      "priority": "High",
+      "userId": "1"
+    },
+    {
+      "id": "11",
+      "title": "Fix ESLint errors",
+      "status": "In Progress",
+      "priority": "Medium",
+      "userId": "2"
+    },
+    {
+      "id": "12",
+      "title": "Write unit tests for UI",
+      "status": "Todo",
+      "priority": "Low",
+      "userId": "3"
+    },
+    {
+      "id": "13",
+      "title": "Review PR for Dashboard",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "4"
+    },
+    {
+      "id": "14",
+      "title": "Optimize images",
+      "status": "Todo",
+      "priority": "Low",
+      "userId": "5"
+    },
+    {
+      "id": "15",
+      "title": "Deploy to Vercel",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "1"
+    },
+    {
+      "id": "16",
+      "title": "Update README.md",
+      "status": "Done",
+      "priority": "Low",
+      "userId": "2"
+    },
+    {
+      "id": "17",
+      "title": "Fix memory leak in charts",
+      "status": "In Progress",
+      "priority": "High",
+      "userId": "3"
+    },
+    {
+      "id": "18",
+      "title": "Add dark mode support",
+      "status": "Todo",
+      "priority": "Medium",
+      "userId": "4"
+    },
+    {
+      "id": "19",
+      "title": "Refactor user authentication",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "5"
+    },
+    {
+      "id": "20",
+      "title": "Integrate payment gateway",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "1"
+    },
+    {
+      "id": "21",
+      "title": "Create marketing assets",
+      "status": "In Progress",
+      "priority": "Medium",
+      "userId": "2"
+    },
+    {
+      "id": "22",
+      "title": "Setup CI/CD pipeline",
+      "status": "Done",
+      "priority": "High",
+      "userId": "3"
+    },
+    {
+      "id": "23",
+      "title": "Write API documentation",
+      "status": "Todo",
+      "priority": "Low",
+      "userId": "4"
+    },
+    {
+      "id": "24",
+      "title": "Optimize database queries",
+      "status": "In Progress",
+      "priority": "High",
+      "userId": "5"
+    },
+    {
+      "id": "25",
+      "title": "Design new logo",
+      "status": "Done",
+      "priority": "Medium",
+      "userId": "1"
+    },
+    {
+      "id": "26",
+      "title": "Implement search functionality",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "2"
+    },
+    {
+      "id": "27",
+      "title": "Fix responsive layout bugs",
+      "status": "In Progress",
+      "priority": "Medium",
+      "userId": "3"
+    },
+    {
+      "id": "28",
+      "title": "Setup monitoring tools",
+      "status": "Todo",
+      "priority": "Low",
+      "userId": "4"
+    },
+    {
+      "id": "29",
+      "title": "Conduct user testing",
+      "status": "Todo",
+      "priority": "High",
+      "userId": "5"
+    },
+    {
+      "id": "30",
+      "title": "Prepare release notes",
+      "status": "Todo",
+      "priority": "Medium",
+      "userId": "1"
+    }
   ],
-  "dashboardStats": {
-    "totalUsers": 5,
-    "activeTasks": 15,
-    "completedTasks": 4,
-    "monthlyViews": [
-      { "month": "Jan", "views": 1200 },
-      { "month": "Feb", "views": 2100 },
-      { "month": "Mar", "views": 1800 },
-      { "month": "Apr", "views": 3200 },
-      { "month": "May", "views": 2900 },
-      { "month": "Jun", "views": 4500 }
-    ]
-  }
+  "dashboardStats-totalUsers": [
+    {
+      "totalUsers": 5
+    }
+  ],
+  "dashboardStats-activeTasks": [
+    {
+      "activeTasks": 15
+    }
+  ],
+  "dashboardStats-completedTasks": [
+    {
+      "completedTasks": 4
+    }
+  ],
+  "dashboardStats-monthlyViews": [
+    {
+      "totalUsers": 5,
+      "activeTasks": 15,
+      "completedTasks": 4,
+      "monthlyViews": [
+        { "month": "Jan", "views": 1200 },
+        { "month": "Feb", "views": 2100 },
+        { "month": "Mar", "views": 1800 },
+        { "month": "Apr", "views": 3200 },
+        { "month": "May", "views": 2900 },
+        { "month": "Jun", "views": 4500 }
+      ],
+      "TrendingPercentage": 55.17,
+      "Description": "Showing total visitors for the last 6 months"
+    }
+  ]
 }

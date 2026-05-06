@@ -39,11 +39,15 @@ export default function RootLayout({
         inter.variable,
       )}
     >
-      <body className="min-h-full">
-          <NavBar></NavBar>
-        {children}
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className="min-h-full ">
+        <NavBar></NavBar>
+        <div className="container w-full px-12 py-4 justify-items-center">
+          {children}
+        </div>
       </body>
     </html>
   );
 }
-
